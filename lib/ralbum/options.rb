@@ -17,7 +17,7 @@ module Ralbum
 
     def parse!
       OptionParser.new do |opts|
-        opts.banner = "Usage: $ #{File.basename(__FILE__)} [options]\n\n" +
+        opts.banner = "Usage: $ ralbum [options]\n\n" +
           "Default values:\n" + @options.map {|v| "\t#{v[0]} = #{v[1]}" }.join("\n") + "\n\nOptions:"
 
         # required arguments

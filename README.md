@@ -1,28 +1,37 @@
 # Ralbum
 
-TODO: Write a gem description
+Generate simple html photo albums.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'ralbum'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ralbum
+$ gem install ralbum
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+Usage: $ options.rb [options]
+
+Default values:
+        verbose = false
+        title = Photo Album
+
+Options:
+    -i, --in-dir [IN_DIR]
+    -o, --out-dir [OUT_DIR]
+    -v, --[no-]verbose
+    -t, --title [TITLE]
+        --help
+```
+
+## Why?
+
+This was a single-file script that I wrote a while ago and then
+forgot about. I needed to use it recently, so I thought I'd
+gemify and publish it.
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/ralbum/fork )
+1. Fork it ( http://github.com/andrew/ralbum/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
