@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "rpa"
   spec.version       = Rpa::VERSION
   spec.authors       = ["Andrew Tongen"]
-  spec.email         = ["atongen@nerdery.com"]
+  spec.email         = ["atongen@gmail.com"]
   spec.summary       = %q{Generate simple html photo albums}
   spec.homepage      = "http://github.com/atongen/rpa"
   spec.license       = "MIT"
