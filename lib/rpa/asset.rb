@@ -1,6 +1,6 @@
 require 'erb'
 
-module Ralbum
+module Rpa
   class Asset
 
     def initialize(*o)
@@ -22,7 +22,7 @@ module Ralbum
     private
 
     def build(template, local_binding)
-      ERB.new(File.read(Ralbum.root.join('templates', template))).result(local_binding)
+      ERB.new(File.read(Rpa.root.join('templates', template))).result(local_binding)
     end
   end
 end

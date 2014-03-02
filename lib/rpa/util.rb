@@ -1,6 +1,6 @@
 require 'exifr'
 
-module Ralbum
+module Rpa
   module Util
     extend self
 

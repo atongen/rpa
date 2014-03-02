@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in ralbum.gemspec
+# Specify your gem's dependencies in rpa.gemspec
 gemspec

@@ -33,7 +33,7 @@
                   <a href="images/original/<%= photo %>">Download Original</a>
                 </div>
                 <div class="image-title"><%= photo %></div>
-                <div class="image-desc"><%= Ralbum::Util.get_file_creation_time(path).strftime("%A, %B %d, %Y at %I:%M%p %Z") %></div>
+                <div class="image-desc"><%= Rpa::Util.get_file_creation_time(path).strftime("%A, %B %d, %Y at %I:%M%p %Z") %></div>
               </div>
             </li>
             <% end %>

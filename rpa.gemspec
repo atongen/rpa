@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ralbum/version'
+require 'rpa/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ralbum"
-  spec.version       = Ralbum::VERSION
+  spec.name          = "rpa"
+  spec.version       = Rpa::VERSION
   spec.authors       = ["Andrew Tongen"]
   spec.email         = ["atongen@nerdery.com"]
   spec.summary       = %q{Generate simple html photo albums}
-  spec.homepage      = "http://github.com/atongen/ralbum"
+  spec.homepage      = "http://github.com/atongen/rpa"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

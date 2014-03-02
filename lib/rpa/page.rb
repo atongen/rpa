@@ -1,4 +1,4 @@
-module Ralbum
+module Rpa
   class Page
 
     def initialize(dir, title, photo_map, verbose = false)

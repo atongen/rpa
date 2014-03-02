@@ -1,7 +1,7 @@
-require "ralbum/version"
+require "rpa/version"
 require "pathname"
 
-module Ralbum
+module Rpa
   PHOTO_TYPES = %w{ jpg jpeg png gif tiff tif bmp }
 
   def self.check_system
@@ -17,9 +17,9 @@ module Ralbum
 
 end
 
-require "ralbum/util"
-require "ralbum/options"
-require "ralbum/asset"
-require "ralbum/photos"
-require "ralbum/page"
-require "ralbum/runner"
+require "rpa/util"
+require "rpa/options"
+require "rpa/asset"
+require "rpa/photos"
+require "rpa/page"
+require "rpa/runner"

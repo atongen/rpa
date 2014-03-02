@@ -1,15 +1,15 @@
-# Ralbum
+# Rpa
 
 Generate simple html photo albums.
 
 ## Installation
 
-$ gem install ralbum
+$ gem install rpa
 
 ## Usage
 
 ```
-Usage: $ ralbum [options]
+Usage: $ rpa [options]
 
 Default values:
         verbose = false
@@ -31,7 +31,7 @@ gemify and publish it.
 
 ## Contributing
 
-1. Fork it ( http://github.com/andrew/ralbum/fork )
+1. Fork it ( http://github.com/andrew/rpa/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

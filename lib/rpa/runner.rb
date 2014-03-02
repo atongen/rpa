@@ -1,6 +1,6 @@
 require 'fileutils'
 
-module Ralbum
+module Rpa
   class Runner
 
     attr_reader :in_dir,
