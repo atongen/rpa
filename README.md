@@ -9,7 +9,7 @@ $ gem install ralbum
 ## Usage
 
 ```
-Usage: $ options.rb [options]
+Usage: $ ralbum [options]
 
 Default values:
         verbose = false
