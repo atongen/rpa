@@ -1,11 +1,3 @@
-# OUT_DIR structure
-# /index.html
-# /app.js
-# /app.css
-# /images/original/
-# /images/preview/
-# /images/thumb/
-
 require 'RMagick'
 require 'fileutils'
 
@@ -17,23 +9,23 @@ class Photos
 
   attr_reader :photo_map
 
-  def initialize(dir, photos = [], verbose = false)
-    @dir = dir
-    @photo_map = {}
-    photos.each do |p|
+  def initialize(photos = [], options = {})
+    @dir = options[:out_dir]
+    @photo_map = photos.inject({}) do |photo_map,p|
       file_name = File.basename(p)
-      while @photo_map.has_key?(file_name)
+      while photo_map.has_key?(file_name)
         ext = File.extname(file_name)
         basename = File.basename(file_name, ext)
-        if m = basename.match(/\-([\d]+)$/)
-          file_name = "#{basename}-#{m[1].to_i+1}#{ext}"
+        if m = basename.match(/(.*)\-([\d]+)$/)
+          file_name = "#{m[1]}-#{m[2].to_i+1}#{ext}"
         else
-          file_name = "#{basename}-0#{ext}"
+          file_name = "#{basename}-1#{ext}"
         end
       end
-      @photo_map[p] = file_name
+      photo_map[file_name] = p
+      photo_map
     end
-    @verbose = verbose
+    @verbose = options[:verbose]
 
     setup_dirs
     write
@@ -103,7 +95,7 @@ class Photos
   end
 
   def write
-    @photo_map.each do |path,name|
+    @photo_map.each do |name,path|
       puts "Writing original #{name}" if verbose?
       ri = load_image(path)
       ri.write(File.join(original_dir, name))
@@ -121,7 +113,7 @@ class Photos
   end
 
   def fix_orientation
-    jpegs = @photo_map.values.select { |p| p.match(/(jpg|jpeg)$/i) }.map do |r|
+    jpegs = @photo_map.keys.select { |p| p.match(/(jpg|jpeg)$/i) }.map do |r|
       [original_dir, preview_dir, thumb_dir].map do |d|
         "\"#{File.join(d, r)}\""
       end

@@ -10,21 +10,21 @@ module Rpa
       @args = args.dup
       # set the default options
       @options = {
+        :in_dir => File.expand_path('.'),
         :verbose => false,
-        :title => "Photo Album"
+        :title => "Ruby Photo Album",
+        :theme => "galleriffic",
+        :list_themes => false
       }
     end
 
     def parse!
       OptionParser.new do |opts|
         opts.banner = "Usage: $ rpa [options]\n\n" +
+          "rpa is Ruby Photo Album (Generator)\n\n" +
           "Default values:\n" + @options.map {|v| "\t#{v[0]} = #{v[1]}" }.join("\n") + "\n\nOptions:"
 
         # required arguments
-
-        opts.on("-i", "--in-dir [IN_DIR]") do |arg|
-          @options[:in_dir] = arg
-        end
 
         opts.on("-o", "--out-dir [OUT_DIR]") do |arg|
           @options[:out_dir] = arg
@@ -32,12 +32,28 @@ module Rpa
 
         # optional arguments
 
+        opts.on("-i", "--in-dir [IN_DIR]") do |arg|
+          @options[:in_dir] = arg
+        end
+
         opts.on("-v", "--[no-]verbose") do |arg|
           @options[:verbose] = arg
         end
 
         opts.on("-t", "--title [TITLE]") do |arg|
           @options[:title] = arg
+        end
+
+        opts.on("-s", "--subtitle [SUBTITLE]") do |arg|
+          @options[:subtitle] = arg
+        end
+
+        opts.on("--theme [THEME]") do |arg|
+          @options[:theme] = arg
+        end
+
+        opts.on("-l", "--[no-]list", "list themes") do |arg|
+          @options[:list_themes] = arg
         end
 
         opts.on_tail("--help") do

@@ -3,26 +3,33 @@ require 'erb'
 module Rpa
   class Asset
 
-    def initialize(*o)
-      @options = *o.pop if o.last.is_a?(Hash)
+    def initialize(photo_map, options = {})
+      @photo_map = photo_map
+      @options = options
     end
 
-    def html(dir, title, photo_map)
+    def html
+      photo_map = @photo_map
+      options = @options
       build('app.html.erb', binding)
     end
 
     def js
-      build('app.js.erb', binding)
+      path('app.js')
     end
 
     def css
-      build('app.css.erb', binding)
+      path('app.css')
     end
 
     private
 
-    def build(template, local_binding)
-      ERB.new(File.read(Rpa.root.join('templates', template))).result(local_binding)
+    def path(file)
+      Rpa.root.join('templates', @options[:theme], file)
+    end
+
+    def build(file, local_binding)
+      ERB.new(File.read(path(file))).result(local_binding)
     end
   end
 end

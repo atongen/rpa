@@ -1,6 +1,8 @@
 # Rpa
 
-Generate simple html photo albums.
+rpa is Ruby Photo Album (Generator). It generates simple html photo albums.
+
+Current theme uses Galleriffic (http://www.twospy.com/galleriffic/)
 
 ## Installation
 
@@ -9,17 +11,26 @@ $ gem install rpa
 ## Usage
 
 ```
+$ rpa -h
 Usage: $ rpa [options]
 
+rpa is Ruby Photo Album (Generator)
+
 Default values:
+        in_dir = /home/atongen/Workspace/personal/rpa
         verbose = false
-        title = Photo Album
+        title = Ruby Photo Album
+        theme = galleriffic
+        list_themes = false
 
 Options:
-    -i, --in-dir [IN_DIR]
     -o, --out-dir [OUT_DIR]
+    -i, --in-dir [IN_DIR]
     -v, --[no-]verbose
     -t, --title [TITLE]
+    -s, --subtitle [SUBTITLE]
+        --theme [THEME]
+    -l, --[no-]list                  list themes
         --help
 ```
 

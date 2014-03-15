@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title><%= options[:title] %></title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+  </head>
+  <body>
+    <div id="page">
+      <div id="container">
+        <h1><a href="index.html"><%= options[:title] %></a></h1>
+        <% if options[:subtitle] %>
+          <h2><%= options[:subtitle] %></h2>
+        <% end %>
+
+        <!-- Start Advanced Gallery Html Containers -->
+        <div id="gallery" class="content">
+          <div id="controls" class="controls"></div>
+          <div class="slideshow-container">
+            <div id="loading" class="loader"></div>
+            <div id="slideshow" class="slideshow"></div>
+          </div>
+          <div id="caption" class="caption-container"></div>
+        </div>
+        <div id="thumbs" class="navigation">
+          <ul class="thumbs noscript">
+            <% photo_map.each do |photo,path| %>
+            <li>
+              <a class="thumb" href="images/preview/<%= photo %>" title="<%= photo %>">
+                <img src="images/thumb/<%= photo %>" alt="<%= photo %>" />
+              </a>
+              <div class="caption">
+                <div class="download">
+                  <a href="images/original/<%= photo %>">Download Original</a>
+                </div>
+                <div class="image-title"><%= photo %></div>
+                <div class="image-desc"><%= Rpa::Util.get_file_creation_time(path).strftime("%A, %B %d, %Y at %I:%M%p %Z") %></div>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

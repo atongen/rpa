@@ -11,6 +11,10 @@ module Rpa
     end
   end
 
+  def self.themes
+    Dir[root.join("templates", "*")].map { |t| File.basename(t) }
+  end
+
   def self.root
     @root ||= Pathname.new(File.expand_path('../..', __FILE__))
   end
