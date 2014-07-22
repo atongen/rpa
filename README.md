@@ -17,7 +17,7 @@ Usage: $ rpa [options]
 rpa is Ruby Photo Album (Generator)
 
 Default values:
-        in_dir = /home/atongen/Workspace/personal/rpa
+        in_dir = .
         verbose = false
         title = Ruby Photo Album
         theme = galleriffic

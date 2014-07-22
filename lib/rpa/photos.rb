@@ -117,10 +117,12 @@ class Photos
       [original_dir, preview_dir, thumb_dir].map do |d|
         "\"#{File.join(d, r)}\""
       end
-    end.flatten.compact.join(' ')
-    unless jpegs == ""
+    end.flatten.compact.uniq
+    unless jpegs.length == 0
       puts "Removing EXIF orientation" if verbose?
-      %x{ jhead -norot #{jpegs} }
+      jpegs.each_slice(25) do |list|
+        %x{ jhead -norot #{list.join(' ')} }
+      end
     end
   end
 end
